@@ -5,10 +5,19 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.0.3
+
+### Features
+- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Improve accessibility and CI.
+	- Add `<fieldset />` for better form logic
+	- Add `aria-label` for text field labeling
+	- Enable tests in CI
+
+
 ## v0.0.2
 
 ### Features
-- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Add `HookedTextField` component.
+- [`639b3ad`](https://github.com/wangc9/delivery-fee-calculator/commit/639b3adc3543d9611625b661a464fbac8a361472) Add `HookedTextField` component.
 	- Component can accept field name and float/int number
 	- Perform validation when value is changed. If input does not comply with the intended type, error message is displayed with the latest change disregarded. E.g. in number 1234. => 1234, in float 1234.+ => 1234.
 	- Integration test for `HookedTextField` and the custom `useField` hook

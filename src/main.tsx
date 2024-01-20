@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 // import App from './App';
 // import { store } from './app/store';
 import './index.css';
+import { Box } from '@mui/material';
 import HookedTextField from './features/textField/HookedTextField';
 
 const container = document.getElementById('root');
@@ -15,7 +16,28 @@ if (container) {
     <React.StrictMode>
       {/* <Provider store={store}> */}
       <main>
-        <HookedTextField type="float" name="deliveryDistance" />
+        <fieldset style={{ borderColor: 'transparent' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: {
+                xs: '100vw',
+                sm: '100vw',
+                md: '100vw',
+                lg: 900,
+                xl: 900,
+              },
+              backgroundColor: '#ffffff',
+              boxShadow: 3,
+              padding: '16 8 16 8',
+            }}
+          >
+            <HookedTextField type="float" name="cartValue" />
+            <HookedTextField type="number" name="deliveryDistance" />
+            <HookedTextField type="number" name="numberOfItems" />
+          </Box>
+        </fieldset>
       </main>
 
       {/* </Provider> */}

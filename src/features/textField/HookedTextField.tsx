@@ -10,7 +10,7 @@ export interface TextFieldType {
 export default function HookedTextField(prop: TextFieldType) {
   const { type, name } = prop;
 
-  const nameWithSpace = name.replace(/[A-Z]/g, ' $1');
+  const nameWithSpace = name.replace(/([A-Z])/g, ' $1');
   const displayName =
     nameWithSpace.charAt(0).toUpperCase() + nameWithSpace.slice(1);
 
@@ -23,8 +23,8 @@ export default function HookedTextField(prop: TextFieldType) {
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        width: 'inherit',
-        padding: theme.spacing(4, 2),
+        alignItems: 'center',
+        padding: theme.spacing(2, 2),
       }}
     >
       <Typography key={`${name}-typography`} variant="h5" fontWeight={500}>
@@ -33,7 +33,9 @@ export default function HookedTextField(prop: TextFieldType) {
       <TextField
         inputProps={{
           'data-test-id': name,
+          'aria-label': displayName,
         }}
+        required
         name={`${name}-textfield`}
         value={property.value}
         onChange={property.onChange}
