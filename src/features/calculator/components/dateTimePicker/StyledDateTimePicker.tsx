@@ -42,7 +42,7 @@ export default function StyledDateTimePicker() {
       <DateTimePicker
         sx={{
           width: 'fit-content',
-          maxWidth: 235,
+          maxWidth: 223,
         }}
         value={dateTime}
         onChange={(newValue) => {

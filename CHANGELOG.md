@@ -5,10 +5,20 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.1.0
+
+### Features
+- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Enable fee calculation.
+	- User can confirm input or make further changes after clicking submit button on the front page
+	- All the inputs, along with the calculated fee, are displayed on a separate page at `/order`
+	- Unit tests are written to test multiple combinations of input
+	- Change font family to `Hanken Grotesk`, clean up pages and add Wolt logo
+
+
 ## v0.0.6
 
 ### Features
-- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Add confirmation page and data validation.
+- [`a027f20`](https://github.com/wangc9/delivery-fee-calculator/commit/a027f204d03cfa734ff4f181dce985a5373be27d) Add confirmation page and data validation.
 	- Submit button is disabled until all fields have been filled
 	- An error message warning about empty input is shown if the input box is clicked without typing valid value
 	- A summary page is shown when the button is clicked to confirm the input

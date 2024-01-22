@@ -1,28 +1,42 @@
-import { Box, Button, Typography } from '@mui/material';
-import { useState } from 'react';
+import { Box, Button, Typography, useTheme, IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { HookedTextField, StyledDateTimePicker } from './components';
-import { useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
+  changeShowConfirmation,
   selectDateTime,
   selectDistance,
   selectItemCount,
+  selectShowConfirmation,
   selectValue,
 } from './calculatorSlice';
+import logo from '../../assets/Wolt-logo.jpg';
 
 export default function Calculator() {
-  const [showSummary, setShowSummary] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const cartValue = useAppSelector(selectValue);
   const deliveryDistance = useAppSelector(selectDistance);
   const itemCount = useAppSelector(selectItemCount);
   const dateTime = useAppSelector(selectDateTime);
+  const showConfirmation = useAppSelector(selectShowConfirmation);
+
+  const dispatch = useAppDispatch();
+
+  const theme = useTheme();
 
   return (
     <main>
       <fieldset
-        style={{ borderColor: 'transparent', padding: 0, border: 0, margin: 0 }}
+        style={{
+          borderColor: 'transparent',
+          padding: 0,
+          border: 0,
+          margin: 0,
+          maxWidth: '100vw',
+        }}
       >
-        {showSummary ? (
+        {showConfirmation ? (
           <Box
             sx={{
               display: 'flex',
@@ -36,13 +50,38 @@ export default function Calculator() {
               },
               backgroundColor: '#ffffff',
               boxShadow: 3,
-              paddingTop: 0,
+              padding: theme.spacing(4, 2),
+              alignSelf: 'center',
             }}
           >
             <Box
               sx={{
                 display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <img src={logo} alt="A Wolt logo" height={100} />
+              <Typography variant="h4" fontWeight={700}>
+                Your Order
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                padding: theme.spacing(2, 2),
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <Typography variant="subtitle1">
+                Please confirm your order
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
                 justifyContent: 'space-between',
+                padding: theme.spacing(2, 2),
+                alignItems: 'center',
               }}
             >
               <Typography variant="h5">Cart Value</Typography>
@@ -52,6 +91,8 @@ export default function Calculator() {
               sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
+                padding: theme.spacing(2, 2),
+                alignItems: 'center',
               }}
             >
               <Typography variant="h5">Delivery Distance</Typography>
@@ -61,6 +102,8 @@ export default function Calculator() {
               sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
+                padding: theme.spacing(2, 2),
+                alignItems: 'center',
               }}
             >
               <Typography variant="h5">Number of Items</Typography>
@@ -70,12 +113,45 @@ export default function Calculator() {
               sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
+                padding: theme.spacing(2, 2),
+                alignItems: 'center',
               }}
             >
               <Typography variant="h5">Order Time</Typography>
               <Typography variant="subtitle1">
                 {dateTime?.slice(0, -9).replace('T', ' ')}
               </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-evenly',
+                marginY: 8,
+              }}
+            >
+              <Button
+                variant="contained"
+                onClick={() => {
+                  dispatch(changeShowConfirmation(true));
+                }}
+                sx={{
+                  width: 'fit-content',
+                  backgroundColor: theme.palette.grey[600],
+                }}
+              >
+                <Typography variant="h6">CANCEL</Typography>
+              </Button>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  navigate('/order');
+                }}
+                sx={{
+                  width: 'fit-content',
+                }}
+              >
+                <Typography variant="h6">CONFIRM</Typography>
+              </Button>
             </Box>
           </Box>
         ) : (
@@ -84,16 +160,38 @@ export default function Calculator() {
               display: 'flex',
               flexDirection: 'column',
               width: {
-                xs: '100vw',
-                sm: '100vw',
+                xs: 'calc(100vw - 32px)',
+                sm: 'calc(100vw - 32px)',
                 md: 900,
                 lg: 900,
                 xl: 900,
               },
               backgroundColor: '#ffffff',
               boxShadow: 3,
+              padding: theme.spacing(4, 2),
+              alignSelf: 'center',
             }}
           >
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <IconButton
+                sx={{
+                  height: 65,
+                  width: 65,
+                  marginX: theme.spacing(3),
+                }}
+                onClick={() => navigate('/')}
+              >
+                <img src={logo} alt="A Wolt logo" height={100} />
+              </IconButton>
+              <Typography variant="h4" fontWeight={700}>
+                Delivery fee calculator
+              </Typography>
+            </Box>
             <HookedTextField
               type="float"
               name="cartValue"
@@ -117,7 +215,7 @@ export default function Calculator() {
                   cartValue === 0 || deliveryDistance === 0 || itemCount === 0
                 }
                 onClick={() => {
-                  setShowSummary(true);
+                  dispatch(changeShowConfirmation(true));
                 }}
                 sx={{
                   width: 'fit-content',

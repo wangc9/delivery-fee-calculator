@@ -19,6 +19,7 @@ describe('Test calculator reducer', () => {
       deliveryDistance: 0,
       numberOfItems: 0,
       orderTime: startTime,
+      showConfirmation: false,
     };
   });
 
@@ -28,6 +29,7 @@ describe('Test calculator reducer', () => {
       deliveryDistance: 0,
       numberOfItems: 0,
       orderTime: start.add(30, 'minutes').format(),
+      showConfirmation: false,
     });
   });
 
@@ -37,12 +39,14 @@ describe('Test calculator reducer', () => {
       deliveryDistance: 0,
       numberOfItems: 0,
       orderTime: startTime,
+      showConfirmation: false,
     });
     expect(reducer(initialState, changeValue(4))).toStrictEqual({
       cartValue: 4,
       deliveryDistance: 0,
       numberOfItems: 0,
       orderTime: startTime,
+      showConfirmation: false,
     });
   });
 
@@ -52,12 +56,14 @@ describe('Test calculator reducer', () => {
       deliveryDistance: 20,
       numberOfItems: 0,
       orderTime: startTime,
+      showConfirmation: false,
     });
     expect(reducer(initialState, changeDistance(4))).toStrictEqual({
       cartValue: 0,
       deliveryDistance: 4,
       numberOfItems: 0,
       orderTime: startTime,
+      showConfirmation: false,
     });
   });
 
@@ -67,12 +73,14 @@ describe('Test calculator reducer', () => {
       deliveryDistance: 0,
       numberOfItems: 20,
       orderTime: startTime,
+      showConfirmation: false,
     });
     expect(reducer(initialState, changeItemCount(4))).toStrictEqual({
       cartValue: 0,
       deliveryDistance: 0,
       numberOfItems: 4,
       orderTime: startTime,
+      showConfirmation: false,
     });
   });
 
@@ -85,6 +93,7 @@ describe('Test calculator reducer', () => {
       deliveryDistance: 0,
       numberOfItems: 0,
       orderTime: newTime.format(),
+      showConfirmation: false,
     });
   });
 });

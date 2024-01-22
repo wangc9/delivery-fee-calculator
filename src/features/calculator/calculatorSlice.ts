@@ -11,6 +11,8 @@ export interface CalculatorSliceState {
   numberOfItems: number;
   /** Selected time of order. */
   orderTime: string;
+  /** Control whether to show confirmation dialogue. */
+  showConfirmation: boolean;
 }
 
 const initialState: CalculatorSliceState = {
@@ -18,6 +20,7 @@ const initialState: CalculatorSliceState = {
   deliveryDistance: 0,
   numberOfItems: 0,
   orderTime: dayjs().add(30, 'minutes').format(),
+  showConfirmation: false,
 };
 
 export const calculatorSlice = createSlice({
@@ -40,6 +43,12 @@ export const calculatorSlice = createSlice({
     changeDateTime: create.reducer((state, action: PayloadAction<string>) => {
       state.orderTime = action.payload;
     }),
+    /** Change whether to show confirmation dialogue. */
+    changeShowConfirmation: create.reducer(
+      (state, action: PayloadAction<boolean>) => {
+        state.showConfirmation = action.payload;
+      },
+    ),
   }),
   selectors: {
     /** Select cart value. */
@@ -50,13 +59,25 @@ export const calculatorSlice = createSlice({
     selectItemCount: (calculator) => calculator.numberOfItems,
     /** Select the date and time. */
     selectDateTime: (calculator) => calculator.orderTime,
+    /** Select the dialogue status. */
+    selectShowConfirmation: (calculator) => calculator.showConfirmation,
   },
 });
 
-export const { changeDateTime, changeDistance, changeItemCount, changeValue } =
-  calculatorSlice.actions;
+export const {
+  changeDateTime,
+  changeDistance,
+  changeItemCount,
+  changeValue,
+  changeShowConfirmation,
+} = calculatorSlice.actions;
 
-export const { selectDateTime, selectDistance, selectItemCount, selectValue } =
-  calculatorSlice.selectors;
+export const {
+  selectDateTime,
+  selectDistance,
+  selectItemCount,
+  selectValue,
+  selectShowConfirmation,
+} = calculatorSlice.selectors;
 
 export default calculatorSlice.reducer;
