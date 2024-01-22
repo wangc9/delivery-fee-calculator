@@ -5,10 +5,18 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
-## v0.0.3
+## v0.0.5
 
 ### Features
-- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Add `StyledDateTimePicker` component.
+- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Add Redux for state management.
+	- Add `calculatorSlice` for updating each value when finished typing
+	- Add unit tests for redux
+
+
+## v0.0.4
+
+### Features
+- [`ad13e52`](https://github.com/wangc9/delivery-fee-calculator/commit/ad13e52dad7411646e79d1d890c3de85d10597a3) Add `StyledDateTimePicker` component.
 	- Refactor code structure according to Redux recommendation (feature folder). The project is now structured according to feature. Each feature contains multiple components that are used exclusively by the feature.
 	- `StyledDateTimePicker` enables inputting date and time by either directly typing into the box or selecting from a date and time selector.
 	- Unit test is written for the new component.

@@ -1,7 +1,9 @@
 import { screen, render, configure } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, test, expect } from '@jest/globals';
+import { Provider } from 'react-redux';
 import HookedTextField from './HookedTextField';
+import { store } from '../../../../app/store';
 
 describe('Test text field component', () => {
   configure({ testIdAttribute: 'data-test-id' });
@@ -10,11 +12,13 @@ describe('Test text field component', () => {
     test('Can input normal int number', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="float"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="float"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123');
@@ -23,11 +27,13 @@ describe('Test text field component', () => {
     test('Can input normal float number', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="float"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="float"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123.45');
@@ -36,11 +42,13 @@ describe('Test text field component', () => {
     test('Can accept float number with plus sign', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="float"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="float"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '+123.45');
@@ -49,11 +57,13 @@ describe('Test text field component', () => {
     test('Can not accept negative number', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="float"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="float"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '-');
@@ -66,11 +76,13 @@ describe('Test text field component', () => {
     test('Can not accept non-digit character', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="float"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="float"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123.+++');
@@ -86,11 +98,13 @@ describe('Test text field component', () => {
     test('Can input normal int number', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="number"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="number"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123');
@@ -99,11 +113,13 @@ describe('Test text field component', () => {
     test('Can not accept float number', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="number"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="number"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123.');
@@ -114,11 +130,13 @@ describe('Test text field component', () => {
     test('Can accept integer with plus sign', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="number"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="number"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '+123');
@@ -127,11 +145,13 @@ describe('Test text field component', () => {
     test('Can not accept negative number', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="number"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="number"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '-');
@@ -144,11 +164,13 @@ describe('Test text field component', () => {
     test('Can not accept non-digit character', async () => {
       const user = userEvent.setup();
       render(
-        <HookedTextField
-          name="cartValue"
-          type="number"
-          label="Value in Euros"
-        />,
+        <Provider store={store}>
+          <HookedTextField
+            name="cartValue"
+            type="number"
+            label="Value in Euros"
+          />
+        </Provider>,
       );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123+.++');

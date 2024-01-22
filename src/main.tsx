@@ -1,11 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 // import App from './App';
-// import { store } from './app/store';
 import './index.css';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { store } from './app/store';
 import Calculator from './features/calculator/Calculator';
 
 const container = document.getElementById('root');
@@ -16,9 +16,9 @@ if (container) {
   root.render(
     <React.StrictMode>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        {/* <Provider store={store}> */}
-        <Calculator />
-        {/* </Provider> */}
+        <Provider store={store}>
+          <Calculator />
+        </Provider>
       </LocalizationProvider>
     </React.StrictMode>,
   );

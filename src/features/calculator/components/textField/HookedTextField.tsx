@@ -1,5 +1,10 @@
 import { Box, Typography, useTheme, TextField } from '@mui/material';
-import { useField } from '../../../../app/hooks';
+import { useAppDispatch, useField } from '../../../../app/hooks';
+import {
+  changeDistance,
+  changeItemCount,
+  changeValue,
+} from '../../calculatorSlice';
 
 export interface TextFieldType {
   /** Camel case of the field name. */
@@ -10,6 +15,8 @@ export interface TextFieldType {
 
 export default function HookedTextField(prop: TextFieldType) {
   const { type, name, label } = prop;
+
+  const dispatch = useAppDispatch();
 
   const nameWithSpace = name.replace(/([A-Z])/g, ' $1');
   const displayName =
@@ -40,6 +47,15 @@ export default function HookedTextField(prop: TextFieldType) {
         name={`${name}-textfield`}
         value={property.value}
         onChange={property.onChange}
+        onBlur={() => {
+          if (name === 'cartValue') {
+            dispatch(changeValue(parseFloat(property.value)));
+          } else if (name === 'deliveryDistance') {
+            dispatch(changeDistance(Number(property.value)));
+          } else {
+            dispatch(changeItemCount(Number(property.value)));
+          }
+        }}
         variant="outlined"
         error={!!property.error}
         helperText={property.error}

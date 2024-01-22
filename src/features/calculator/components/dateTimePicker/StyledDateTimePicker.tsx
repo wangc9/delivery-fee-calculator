@@ -2,11 +2,14 @@ import dayjs, { Dayjs } from 'dayjs';
 import { DateTimePicker, DateTimeValidationError } from '@mui/x-date-pickers';
 import { useMemo, useState } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
+import { useAppDispatch } from '../../../../app/hooks';
+import { changeDateTime } from '../../calculatorSlice';
 
 export default function StyledDateTimePicker() {
-  const [dateTime, setDateTime] = useState<Dayjs | null>(dayjs());
+  const [dateTime, setDateTime] = useState<Dayjs>(dayjs());
   const [error, setError] = useState<DateTimeValidationError | null>(null);
   const theme = useTheme();
+  const dispatch = useAppDispatch();
 
   const errorMessage = useMemo(() => {
     switch (error) {
@@ -41,8 +44,17 @@ export default function StyledDateTimePicker() {
           maxWidth: 235,
         }}
         value={dateTime}
-        onChange={(newValue) => setDateTime(newValue)}
+        onChange={(newValue) => {
+          if (newValue) {
+            setDateTime(newValue);
+          }
+        }}
+        onAccept={() => dispatch(changeDateTime(dateTime.format()))}
+        onSelectedSectionsChange={() =>
+          dispatch(changeDateTime(dateTime.format()))
+        }
         minutesStep={1}
+        timeSteps={{ minutes: 1 }}
         ampm={false}
         ampmInClock={false}
         disablePast
