@@ -9,28 +9,52 @@ describe('Test text field component', () => {
   describe('Test float option', () => {
     test('Can input normal int number', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="float" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="float"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123');
       expect((inputField as HTMLInputElement).value).toBe('123');
     });
     test('Can input normal float number', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="float" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="float"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123.45');
       expect((inputField as HTMLInputElement).value).toBe('123.45');
     });
     test('Can accept float number with plus sign', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="float" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="float"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '+123.45');
       expect((inputField as HTMLInputElement).value).toBe('123.45');
     });
     test('Can not accept negative number', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="float" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="float"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '-');
       expect((inputField as HTMLInputElement).value).toBe('');
@@ -41,7 +65,13 @@ describe('Test text field component', () => {
     });
     test('Can not accept non-digit character', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="float" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="float"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123.+++');
       expect((inputField as HTMLInputElement).value).toBe('123.');
@@ -55,14 +85,26 @@ describe('Test text field component', () => {
   describe('Test number option', () => {
     test('Can input normal int number', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="number" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="number"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123');
       expect((inputField as HTMLInputElement).value).toBe('123');
     });
     test('Can not accept float number', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="number" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="number"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123.');
       expect((inputField as HTMLInputElement).value).toBe('123');
@@ -71,14 +113,26 @@ describe('Test text field component', () => {
     });
     test('Can accept integer with plus sign', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="number" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="number"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '+123');
       expect((inputField as HTMLInputElement).value).toBe('123');
     });
     test('Can not accept negative number', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="number" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="number"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '-');
       expect((inputField as HTMLInputElement).value).toBe('');
@@ -89,7 +143,13 @@ describe('Test text field component', () => {
     });
     test('Can not accept non-digit character', async () => {
       const user = userEvent.setup();
-      render(<HookedTextField name="cartValue" type="number" />);
+      render(
+        <HookedTextField
+          name="cartValue"
+          type="number"
+          label="Value in Euros"
+        />,
+      );
       const inputField = await screen.findByTestId('cartValue');
       await user.type(inputField, '123+.++');
       expect((inputField as HTMLInputElement).value).toBe('123');

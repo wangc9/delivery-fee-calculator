@@ -8,7 +8,17 @@
 ## v0.0.3
 
 ### Features
-- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Improve accessibility and CI.
+- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Add `StyledDateTimePicker` component.
+	- Refactor code structure according to Redux recommendation (feature folder). The project is now structured according to feature. Each feature contains multiple components that are used exclusively by the feature.
+	- `StyledDateTimePicker` enables inputting date and time by either directly typing into the box or selecting from a date and time selector.
+	- Unit test is written for the new component.
+	- Improve accessibility by adding visual labels and matching them with aria labels.
+
+
+## v0.0.3
+
+### Features
+- [`596f8e2`](https://github.com/wangc9/delivery-fee-calculator/commit/596f8e2f7de1675334f1ec7aeff2620793825b61) Improve accessibility and CI.
 	- Add `<fieldset />` for better form logic
 	- Add `aria-label` for text field labeling
 	- Enable tests in CI

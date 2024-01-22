@@ -1,14 +1,15 @@
 import { Box, Typography, useTheme, TextField } from '@mui/material';
-import { useField } from '../../app/hooks';
+import { useField } from '../../../../app/hooks';
 
 export interface TextFieldType {
   /** Camel case of the field name. */
   name: string;
   type: 'float' | 'number';
+  label: string;
 }
 
 export default function HookedTextField(prop: TextFieldType) {
-  const { type, name } = prop;
+  const { type, name, label } = prop;
 
   const nameWithSpace = name.replace(/([A-Z])/g, ' $1');
   const displayName =
@@ -33,7 +34,7 @@ export default function HookedTextField(prop: TextFieldType) {
       <TextField
         inputProps={{
           'data-test-id': name,
-          'aria-label': displayName,
+          'aria-label': `Enter ${label}`,
         }}
         required
         name={`${name}-textfield`}
@@ -42,6 +43,7 @@ export default function HookedTextField(prop: TextFieldType) {
         variant="outlined"
         error={!!property.error}
         helperText={property.error}
+        label={label}
       />
     </Box>
   );
