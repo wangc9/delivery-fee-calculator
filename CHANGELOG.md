@@ -5,10 +5,19 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.0.6
+
+### Features
+- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Add confirmation page and data validation.
+	- Submit button is disabled until all fields have been filled
+	- An error message warning about empty input is shown if the input box is clicked without typing valid value
+	- A summary page is shown when the button is clicked to confirm the input
+
+
 ## v0.0.5
 
 ### Features
-- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Add Redux for state management.
+- [`e203bbf`](https://github.com/wangc9/delivery-fee-calculator/commit/e203bbf67fa394b5b313886b43e794acd2c6eba8) Add Redux for state management.
 	- Add `calculatorSlice` for updating each value when finished typing
 	- Add unit tests for redux
 

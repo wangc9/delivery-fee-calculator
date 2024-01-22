@@ -48,7 +48,9 @@ export default function HookedTextField(prop: TextFieldType) {
         value={property.value}
         onChange={property.onChange}
         onBlur={() => {
-          if (name === 'cartValue') {
+          if (property.value === '' || property.value === '0') {
+            property.setError('Value can not be empty!');
+          } else if (name === 'cartValue') {
             dispatch(changeValue(parseFloat(property.value)));
           } else if (name === 'deliveryDistance') {
             dispatch(changeDistance(Number(property.value)));
@@ -57,8 +59,10 @@ export default function HookedTextField(prop: TextFieldType) {
           }
         }}
         variant="outlined"
-        error={!!property.error}
-        helperText={property.error}
+        error={property.value === '0' || !!property.error}
+        helperText={
+          property.value === '0' ? 'Value can not be empty!' : property.error
+        }
         label={label}
       />
     </Box>

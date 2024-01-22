@@ -10,7 +10,8 @@ import reducer, {
 
 describe('Test calculator reducer', () => {
   let initialState: CalculatorSliceState;
-  const startTime = dayjs().format();
+  const start = dayjs();
+  const startTime = start.format();
 
   beforeEach(() => {
     initialState = {
@@ -26,7 +27,7 @@ describe('Test calculator reducer', () => {
       cartValue: 0,
       deliveryDistance: 0,
       numberOfItems: 0,
-      orderTime: null,
+      orderTime: start.add(30, 'minutes').format(),
     });
   });
 

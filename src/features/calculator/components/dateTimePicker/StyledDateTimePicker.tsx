@@ -2,11 +2,12 @@ import dayjs, { Dayjs } from 'dayjs';
 import { DateTimePicker, DateTimeValidationError } from '@mui/x-date-pickers';
 import { useMemo, useState } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
-import { useAppDispatch } from '../../../../app/hooks';
-import { changeDateTime } from '../../calculatorSlice';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
+import { changeDateTime, selectDateTime } from '../../calculatorSlice';
 
 export default function StyledDateTimePicker() {
-  const [dateTime, setDateTime] = useState<Dayjs>(dayjs());
+  const initDateTime = useAppSelector(selectDateTime);
+  const [dateTime, setDateTime] = useState<Dayjs>(dayjs(initDateTime));
   const [error, setError] = useState<DateTimeValidationError | null>(null);
   const theme = useTheme();
   const dispatch = useAppDispatch();

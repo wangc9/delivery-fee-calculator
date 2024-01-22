@@ -70,5 +70,7 @@ export const useField = (type: 'float' | 'number') => {
     error,
     /** `onChange` event handler. Perform validation check and return changed value or error message. */
     onChange,
+    /** Manually set error message. */
+    setError,
   };
 };

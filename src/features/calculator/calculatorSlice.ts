@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import dayjs from 'dayjs';
 
 export interface CalculatorSliceState {
   /** Total value in the cart. */
@@ -9,14 +10,14 @@ export interface CalculatorSliceState {
   /** Number of items in the cart. */
   numberOfItems: number;
   /** Selected time of order. */
-  orderTime: string | null;
+  orderTime: string;
 }
 
 const initialState: CalculatorSliceState = {
   cartValue: 0,
   deliveryDistance: 0,
   numberOfItems: 0,
-  orderTime: null,
+  orderTime: dayjs().add(30, 'minutes').format(),
 };
 
 export const calculatorSlice = createSlice({
