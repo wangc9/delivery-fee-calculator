@@ -5,14 +5,26 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.1.1
+
+### Features
+- [`0136517`](https://github.com/wangc9/delivery-fee-calculator/commit/013651726649d9ca71b575b727f3f5684ce50202)* Add e2e tests.
+	- More `data-test-id`s are added for easier testing
+	- Use Cypress to perform e2e tests
+
+
 ## v0.1.0
 
 ### Features
-- [`5d232f0`](https://github.com/wangc9/delivery-fee-calculator/commit/5d232f07a02719dc87ca8a092ca9869156a900ef)* Enable fee calculation.
+- [`0136517`](https://github.com/wangc9/delivery-fee-calculator/commit/013651726649d9ca71b575b727f3f5684ce50202) Enable fee calculation.
 	- User can confirm input or make further changes after clicking submit button on the front page
 	- All the inputs, along with the calculated fee, are displayed on a separate page at `/order`
 	- Unit tests are written to test multiple combinations of input
 	- Change font family to `Hanken Grotesk`, clean up pages and add Wolt logo
+
+### Bug fixes
+- [`eefa91d`](https://github.com/wangc9/delivery-fee-calculator/commit/eefa91d4608eba603ccac2399913619775372b5a) Change time in unit tests.
+	- Initial unit tests can run locally, but fail to run in CI pipeline. Possible reason: different time zone causing the calculation to fail to determine "Friday rush"
 
 
 ## v0.0.6
