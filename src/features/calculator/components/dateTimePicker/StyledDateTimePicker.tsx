@@ -62,13 +62,18 @@ export default function StyledDateTimePicker() {
         format="DD.MM.YYYY HH.mm"
         label="Time in DD.MM.YYYY HH.mm"
         onError={(newError) => setError(newError)}
+        readOnly={false}
         slotProps={{
           textField: {
             helperText: errorMessage,
             label: 'Order time',
+            InputProps: {
+              readOnly: false,
+            },
             inputProps: {
               'data-test-id': 'orderTime',
               'aria-label': 'Enter the order Time',
+              readonly: false,
             },
           },
         }}
