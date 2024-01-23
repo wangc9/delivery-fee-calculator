@@ -85,7 +85,10 @@ export default function Calculator() {
               }}
             >
               <Typography variant="h5">Cart Value</Typography>
-              <Typography variant="subtitle1">{`\u20AC ${cartValue}`}</Typography>
+              <Typography
+                variant="subtitle1"
+                data-test-id="confirmCartValue"
+              >{`\u20AC ${cartValue}`}</Typography>
             </Box>
             <Box
               sx={{
@@ -96,7 +99,12 @@ export default function Calculator() {
               }}
             >
               <Typography variant="h5">Delivery Distance</Typography>
-              <Typography variant="subtitle1">{deliveryDistance} m</Typography>
+              <Typography
+                variant="subtitle1"
+                data-test-id="confirmDeliveryDistance"
+              >
+                {deliveryDistance} m
+              </Typography>
             </Box>
             <Box
               sx={{
@@ -107,7 +115,12 @@ export default function Calculator() {
               }}
             >
               <Typography variant="h5">Number of Items</Typography>
-              <Typography variant="subtitle1">{itemCount}</Typography>
+              <Typography
+                variant="subtitle1"
+                data-test-id="confirmNumberOfItems"
+              >
+                {itemCount}
+              </Typography>
             </Box>
             <Box
               sx={{
@@ -118,7 +131,7 @@ export default function Calculator() {
               }}
             >
               <Typography variant="h5">Order Time</Typography>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" data-test-id="confirmOrderTime">
                 {dateTime?.slice(0, -9).replace('T', ' ')}
               </Typography>
             </Box>
@@ -130,9 +143,10 @@ export default function Calculator() {
               }}
             >
               <Button
+                data-test-id="cancelButton"
                 variant="contained"
                 onClick={() => {
-                  dispatch(changeShowConfirmation(true));
+                  dispatch(changeShowConfirmation(false));
                 }}
                 sx={{
                   width: 'fit-content',
@@ -142,6 +156,7 @@ export default function Calculator() {
                 <Typography variant="h6">CANCEL</Typography>
               </Button>
               <Button
+                data-test-id="orderConfirmButton"
                 variant="contained"
                 onClick={() => {
                   navigate('/order');
@@ -210,6 +225,7 @@ export default function Calculator() {
             <StyledDateTimePicker />
             <Box sx={{ alignSelf: 'center', marginY: 8 }}>
               <Button
+                data-test-id="submitButton"
                 variant="contained"
                 disabled={
                   cartValue === 0 || deliveryDistance === 0 || itemCount === 0

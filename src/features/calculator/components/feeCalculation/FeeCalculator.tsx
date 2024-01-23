@@ -158,7 +158,7 @@ export default function FeeCalculator() {
           }}
         >
           <Typography variant="h5">Delivery Fee</Typography>
-          <Typography variant="h5" fontWeight={700}>
+          <Typography variant="h5" fontWeight={700} data-test-id="deliveryFee">
             {'\u20AC '}
             {calculateFee({
               value: cartValue,
@@ -170,6 +170,7 @@ export default function FeeCalculator() {
         </Box>
         <Box sx={{ alignSelf: 'center', margin: theme.spacing(4, 0) }}>
           <Button
+            data-test-id="returnButton"
             variant="contained"
             onClick={() => {
               dispatch(changeDistance(0));
