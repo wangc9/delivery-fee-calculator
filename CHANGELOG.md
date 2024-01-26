@@ -5,12 +5,24 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.1.2
+### Features
+- [`1fc5a23`](https://github.com/wangc9/delivery-fee-calculator/commit/1fc5a23a1403cbf7ae89d553b8bf46cff55383fb)* Change front page style
+
+### Chores
+- [`1fc5a23`](https://github.com/wangc9/delivery-fee-calculator/commit/1fc5a23a1403cbf7ae89d553b8bf46cff55383fb)* Add README for local build instructions
+
+
 ## v0.1.1
 
 ### Features
-- [`0136517`](https://github.com/wangc9/delivery-fee-calculator/commit/013651726649d9ca71b575b727f3f5684ce50202)* Add e2e tests.
+- [`1fc5a23`](https://github.com/wangc9/delivery-fee-calculator/commit/1fc5a23a1403cbf7ae89d553b8bf46cff55383fb) Add e2e tests.
 	- More `data-test-id`s are added for easier testing
 	- Use Cypress to perform e2e tests
+
+### Bug fixes
+- [`f99cd17`](https://github.com/wangc9/delivery-fee-calculator/commit/f99cd17a648e8adb34e89313102177eb7bc20dd8) Use `DesktopDateTimePicker` instead of `DateTimePicker` for CI consistency
+- [`1f3d9b9`](https://github.com/wangc9/delivery-fee-calculator/commit/1f3d9b959e761fac4bc4916def1d06276e41a0f7) Fix eslint issue for cypress config file
 
 
 ## v0.1.0

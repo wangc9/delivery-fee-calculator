@@ -52,6 +52,7 @@ export default function Calculator() {
               boxShadow: 3,
               padding: theme.spacing(4, 2),
               alignSelf: 'center',
+              borderRadius: theme.spacing(4),
             }}
           >
             <Box
@@ -185,6 +186,7 @@ export default function Calculator() {
               boxShadow: 3,
               padding: theme.spacing(4, 2),
               alignSelf: 'center',
+              borderRadius: theme.spacing(4),
             }}
           >
             <Box

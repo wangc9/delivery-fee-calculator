@@ -70,13 +70,9 @@ export default function StyledDateTimePicker() {
           textField: {
             helperText: errorMessage,
             label: 'Order time',
-            InputProps: {
-              readOnly: false,
-            },
             inputProps: {
               'data-test-id': 'orderTime',
               'aria-label': 'Enter the order Time',
-              readonly: false,
             },
           },
         }}
