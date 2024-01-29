@@ -64,7 +64,10 @@ export default function StyledDateTimePicker() {
         disablePast
         format="DD.MM.YYYY HH.mm"
         label="Time in DD.MM.YYYY HH.mm"
-        onError={(newError) => setError(newError)}
+        onError={(newError) => {
+          setError(newError);
+          dispatch(changeDateTime(''));
+        }}
         readOnly={false}
         slotProps={{
           textField: {

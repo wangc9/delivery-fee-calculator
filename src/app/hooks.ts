@@ -28,14 +28,17 @@ export const useField = (type: 'float' | 'number') => {
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const target = event.currentTarget.value;
+    setValue(target);
+  };
+
+  const onBlur = () => {
     if (type === 'float') {
-      if (target.match(/^[0-9]*\.?([0-9]+)?$/)) {
+      if (value.match(/^[0-9]*\.?([0-9]+)?$/)) {
         setError(null);
-        setValue(target);
-      } else if (target.match(/^-(.+)?/)) {
+      } else if (value.match(/^-(.+)?/)) {
         setError('Value must be a positive float number');
-      } else if (target.match(/^\+(.+)?/)) {
-        const newValue = target.slice(1);
+      } else if (value.match(/^\+(.+)?/)) {
+        const newValue = value.slice(1);
         if (newValue.match(/^[0-9]*\.?([0-9]+)?$/)) {
           setValue(newValue);
         } else {
@@ -45,13 +48,12 @@ export const useField = (type: 'float' | 'number') => {
         setError('Value must be a float number');
       }
     } else if (type === 'number') {
-      if (target.match(/^\d+$/)) {
+      if (value.match(/^\d+$/)) {
         setError(null);
-        setValue(target);
-      } else if (target.match(/^-(.+)?/)) {
+      } else if (value.match(/^-(.+)?/)) {
         setError('Value must be a positive integer');
-      } else if (target.match(/^\+(.+)?/)) {
-        const newValue = target.slice(1);
+      } else if (value.match(/^\+(.+)?/)) {
+        const newValue = value.slice(1);
         if (newValue.match(/^\d+$/)) {
           setValue(newValue);
         } else {
@@ -68,8 +70,10 @@ export const useField = (type: 'float' | 'number') => {
     value,
     /** Error message. Default as null. Contains error message if validation fails. */
     error,
-    /** `onChange` event handler. Perform validation check and return changed value or error message. */
+    /** `onChange` event handler. Set new value when typed. */
     onChange,
+    /** `onBlur` event handler. Perform validation check and return changed value or error message. */
+    onBlur,
     /** Manually set error message. */
     setError,
   };

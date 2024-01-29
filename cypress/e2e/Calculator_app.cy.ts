@@ -944,5 +944,111 @@ describe('e2e tests for the calculator app', () => {
         cy.get('[data-test-id="deliveryFee"]').should('contain', '\u20AC 9.7');
       });
     });
+
+    describe('Test edge cases', () => {
+      beforeEach(() => {
+        cy.visit('http://localhost:5173');
+      });
+
+      it('Should return error message when typing wrong information', () => {
+        cy.get('[data-test-id="cartValue"]').type('-1');
+        cy.get('[data-test-id="deliveryDistance"]').type('1');
+        cy.get('[data-test-id="cartValueHelper"]').should(
+          'contain',
+          'Value must be a positive float number',
+        );
+        cy.get('[data-test-id="cartValue"]').type('{backspace}{backspace}1+');
+        cy.get('[data-test-id="deliveryDistance"]').type('1');
+        cy.get('[data-test-id="cartValueHelper"]').should(
+          'contain',
+          'Value must be a float number',
+        );
+        cy.get('[data-test-id="cartValue"]').type('{backspace}{backspace}test');
+        cy.get('[data-test-id="deliveryDistance"]').type('1');
+        cy.get('[data-test-id="cartValueHelper"]').should(
+          'contain',
+          'Value must be a float number',
+        );
+        cy.get('[data-test-id="cartValue"]').type(
+          '{backspace}{backspace}{backspace}{backspace}+12-',
+        );
+        cy.get('[data-test-id="deliveryDistance"]').type('1');
+        cy.get('[data-test-id="cartValueHelper"]').should(
+          'contain',
+          'Value must be a float number',
+        );
+        cy.get('[data-test-id="deliveryDistance"]').clear();
+        cy.get('[data-test-id="deliveryDistance"]').type('-1');
+        cy.get('[data-test-id="numberOfItems"]').type('1');
+        cy.get('[data-test-id="deliveryDistanceHelper"]').should(
+          'contain',
+          'Value must be a positive integer',
+        );
+
+        cy.get('[data-test-id="deliveryDistance"]').type(
+          '{backspace}{backspace}1+',
+        );
+        cy.get('[data-test-id="numberOfItems"]').type('1');
+        cy.get('[data-test-id="deliveryDistanceHelper"]').should(
+          'contain',
+          'Value must be an integer',
+        );
+
+        cy.get('[data-test-id="deliveryDistance"]').type(
+          '{backspace}{backspace}test',
+        );
+        cy.get('[data-test-id="numberOfItems"]').type('1');
+        cy.get('[data-test-id="deliveryDistanceHelper"]').should(
+          'contain',
+          'Value must be an integer',
+        );
+
+        cy.get('[data-test-id="deliveryDistance"]').type(
+          '{backspace}{backspace}{backspace}{backspace}+12-',
+        );
+        cy.get('[data-test-id="numberOfItems"]').type('1');
+        cy.get('[data-test-id="deliveryDistanceHelper"]').should(
+          'contain',
+          'Value must be an integer',
+        );
+
+        cy.get('[data-test-id="deliveryDistance"]').type(
+          '{backspace}{backspace}{backspace}{backspace}123.4',
+        );
+        cy.get('[data-test-id="numberOfItems"]').type('1');
+        cy.get('[data-test-id="deliveryDistanceHelper"]').should(
+          'contain',
+          'Value must be an integer',
+        );
+
+        cy.get('[data-test-id="submitButton"]').should('be.disabled');
+      });
+
+      it('All field should accept normal input with plus sign', () => {
+        cy.get('[data-test-id="cartValue"]').type('+194.54');
+        cy.get('[data-test-id="deliveryDistance"]').type('+1999');
+        cy.get('[data-test-id="numberOfItems"]').type('+13');
+        cy.get('[data-test-id="orderTime"]').type('010320241753');
+        cy.get('[data-test-id="submitButton"]').click();
+        cy.get('[data-test-id="confirmCartValue"]').should(
+          'contain',
+          '\u20AC 194.54',
+        );
+        cy.get('[data-test-id="confirmDeliveryDistance"]').should(
+          'contain',
+          '1999 m',
+        );
+        cy.get('[data-test-id="confirmNumberOfItems"]').should('contain', '13');
+        cy.get('[data-test-id="confirmOrderTime"]').should(
+          'contain',
+          '2024-03-01 17:53',
+        );
+        cy.get('[data-test-id="orderConfirmButton"]').click();
+        cy.get('[data-test-id="deliveryFee"]').should(
+          'contain',
+          '\u20AC 11.64',
+        );
+      });
+    });
   });
 });

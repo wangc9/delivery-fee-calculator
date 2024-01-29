@@ -1,4 +1,4 @@
-import { Box, Button, Typography, useTheme, IconButton } from '@mui/material';
+import { Box, Button, Typography, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { HookedTextField, StyledDateTimePicker } from './components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
@@ -195,16 +195,7 @@ export default function Calculator() {
                 alignItems: 'center',
               }}
             >
-              <IconButton
-                sx={{
-                  height: 65,
-                  width: 65,
-                  marginX: theme.spacing(3),
-                }}
-                onClick={() => navigate('/')}
-              >
-                <img src={logo} alt="A Wolt logo" height={100} />
-              </IconButton>
+              <img src={logo} alt="A Wolt logo" height={100} />
               <Typography variant="h4" fontWeight={700}>
                 Delivery fee calculator
               </Typography>
@@ -230,7 +221,10 @@ export default function Calculator() {
                 data-test-id="submitButton"
                 variant="contained"
                 disabled={
-                  cartValue === 0 || deliveryDistance === 0 || itemCount === 0
+                  cartValue === 0 ||
+                  deliveryDistance === 0 ||
+                  itemCount === 0 ||
+                  dateTime === ''
                 }
                 onClick={() => {
                   dispatch(changeShowConfirmation(true));

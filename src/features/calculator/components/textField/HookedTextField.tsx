@@ -39,6 +39,7 @@ export default function HookedTextField(prop: TextFieldType) {
         {displayName}
       </Typography>
       <TextField
+        data-test-id={`${name}Helper`}
         inputProps={{
           'data-test-id': name,
           'aria-label': `Enter ${label}`,
@@ -48,14 +49,25 @@ export default function HookedTextField(prop: TextFieldType) {
         value={property.value}
         onChange={property.onChange}
         onBlur={() => {
+          if (name === 'cartValue') {
+            dispatch(changeValue(0));
+          } else if (name === 'deliveryDistance') {
+            dispatch(changeDistance(0));
+          } else {
+            dispatch(changeItemCount(0));
+          }
+          property.onBlur();
           if (property.value === '' || property.value === '0') {
             property.setError('Value can not be empty!');
-          } else if (name === 'cartValue') {
-            dispatch(changeValue(parseFloat(property.value)));
-          } else if (name === 'deliveryDistance') {
-            dispatch(changeDistance(Number(property.value)));
-          } else {
-            dispatch(changeItemCount(Number(property.value)));
+          }
+          if (property.error === null || property.error === '') {
+            if (name === 'cartValue') {
+              dispatch(changeValue(parseFloat(property.value)));
+            } else if (name === 'deliveryDistance') {
+              dispatch(changeDistance(Number(property.value)));
+            } else {
+              dispatch(changeItemCount(Number(property.value)));
+            }
           }
         }}
         variant="outlined"
