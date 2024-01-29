@@ -5,9 +5,17 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.1.4
+### Chores
+- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Split calculator page and confirmation page into reusable components
+	- Split `Calculator` into `Calculator` and `Confirmation`
+	- Use `Header` and `ConfirmItem` to display confirmation page
+	- Add unit tests for the new pages and components
+
+
 ## v0.1.3
 ### Features
-- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Change input validation
+- [`77e1590`](https://github.com/wangc9/delivery-fee-calculator/commit/77e159094482f8c3b395e05e004fa96ff8397897) Change input validation
 	- Validation now happens only when the user has finished typing and clicked out of the text box
 	- The submit button is disabled until all text boxes receive correct input (positive integer or float number and order time is later than the current time)
 	- All unit and integration have been updated
@@ -16,10 +24,10 @@
 
 ## v0.1.2
 ### Features
-- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Change front page style
+- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec) Change front page style
 
 ### Chores
-- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Add README for local build instructions
+- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec) Add README for local build instructions
 
 
 ## v0.1.1
