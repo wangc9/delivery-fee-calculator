@@ -1,3 +1,6 @@
+/**
+ * Index of all components in the calculator feature.
+ */
 import StyledDateTimePicker from './dateTimePicker/StyledDateTimePicker';
 import HookedTextField from './textField/HookedTextField';
 import FeeCalculator from './feeCalculation/FeeCalculator';

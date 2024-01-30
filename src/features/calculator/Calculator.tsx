@@ -11,7 +11,15 @@ import {
 } from './calculatorSlice';
 import Confirmation from './Confirmation';
 
-export default function Calculator() {
+/**
+ * A page for asking value input.
+ *
+ * Display title and four input field: cart value, delivery distance,
+ * number of items, and order time. A button at the bottom of the page
+ * redirects to confirmation when clicked. The button is disabled until
+ * all text fields receive valid input.
+ */
+export default function Calculator(): React.JSX.Element {
   const cartValue = useAppSelector(selectValue);
   const deliveryDistance = useAppSelector(selectDistance);
   const itemCount = useAppSelector(selectItemCount);

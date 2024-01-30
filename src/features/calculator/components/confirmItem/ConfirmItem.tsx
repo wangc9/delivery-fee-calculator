@@ -1,11 +1,18 @@
 import { Box, Typography, useTheme } from '@mui/material';
 
 export interface ConfirmItemType {
+  /** Name of the item in camelCase. */
   name: string;
+  /** The value to be displayed. */
   value: number | string;
 }
 
-export default function ConfirmItem(props: ConfirmItemType) {
+/**
+ * A reusable item to display value.
+ *
+ * @param props {@link ConfirmItemType}
+ */
+export default function ConfirmItem(props: ConfirmItemType): React.JSX.Element {
   const theme = useTheme();
 
   const { name, value } = props;

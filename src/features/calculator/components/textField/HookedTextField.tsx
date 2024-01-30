@@ -6,14 +6,27 @@ import {
   changeValue,
 } from '../../calculatorSlice';
 
+/**
+ * Type definition for {@link HookedTextField}
+ */
 export interface TextFieldType {
   /** Camel case of the field name. */
   name: string;
   type: 'float' | 'number';
+  /** aria label. */
   label: string;
 }
 
-export default function HookedTextField(prop: TextFieldType) {
+/**
+ * A component displaying name and a textfield for input.
+ *
+ * The textfield performs validation check when loses focus and emit error message if needed.
+ *
+ * @param prop {@link TextField}
+ */
+export default function HookedTextField(
+  prop: TextFieldType,
+): React.JSX.Element {
   const { type, name, label } = prop;
 
   const dispatch = useAppDispatch();

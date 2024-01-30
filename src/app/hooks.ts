@@ -16,14 +16,22 @@ export const useAppSelector = useSelector.withTypes<RootState>();
  * @param type Define type of input. For integer, choose "number", for float, choose "float".
  *
  * @returns `onChange` -- `onChange` event handler \
+ * `onBlur` -- `onBlur` event handler\
  * `value` -- Value of the property \
  * `error` -- Error message
  */
 // eslint-disable-next-line import/prefer-default-export
 export const useField = (type: 'float' | 'number') => {
+  /** State of the value. */
   const [value, setValue] = useState<string>('');
+  /** State of error. */
   const [error, setError] = useState<null | string>(null);
 
+  /**
+   * Change value when the text field value has changed.
+   *
+   * @param event React change event
+   */
   const onChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -31,6 +39,14 @@ export const useField = (type: 'float' | 'number') => {
     setValue(target);
   };
 
+  /**
+   * Call when user focus has shifted (tab out or click out).
+   *
+   * Perform validation check when called. Matching float or integer number
+   * will be accepted without changing the state. Float or integer with plus
+   * sign only at the beginning will be recorded as normal number without sign.
+   * All other inputs will be rejected with corresponding error message.
+   */
   const onBlur = () => {
     if (type === 'float') {
       if (value.match(/^[0-9]*\.?([0-9]+)?$/)) {
@@ -70,9 +86,7 @@ export const useField = (type: 'float' | 'number') => {
     value,
     /** Error message. Default as null. Contains error message if validation fails. */
     error,
-    /** `onChange` event handler. Set new value when typed. */
     onChange,
-    /** `onBlur` event handler. Perform validation check and return changed value or error message. */
     onBlur,
     /** Manually set error message. */
     setError,

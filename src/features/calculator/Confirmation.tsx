@@ -10,7 +10,14 @@ import {
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { ConfirmItem, Header } from './components';
 
-export default function Confirmation() {
+/**
+ * A confirmation page.
+ *
+ * Display all the values from user input. The cancel page at the bottom
+ * redirects to the front page when clicked. The confirm button redirects
+ * to the calculation page when clicked.
+ */
+export default function Confirmation(): React.JSX.Element {
   const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();

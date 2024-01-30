@@ -3,12 +3,24 @@ import {
   DesktopDateTimePicker,
   DateTimeValidationError,
 } from '@mui/x-date-pickers';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { changeDateTime, selectDateTime } from '../../calculatorSlice';
 
-export default function StyledDateTimePicker() {
+/**
+ * A datetime picker.
+ *
+ * Time is displayed in finnish DD.MM.YY HH.mm format. Date and time can be
+ * typed in to the text field or selected using the selector. Default time is
+ * 30 minutes after the time when the component is initially loaded. Selecting
+ * or typing a time earlier than the current time will result in warning. The
+ * datetime selected or typed will be memorised in redux after the component loses
+ * focus.
+ *
+ * The input field can be tested with id "orderTime".
+ */
+export default function StyledDateTimePicker(): React.JSX.Element {
   const initDateTime = useAppSelector(selectDateTime);
   const [dateTime, setDateTime] = useState<Dayjs>(dayjs(initDateTime));
   const [error, setError] = useState<DateTimeValidationError | null>(null);

@@ -12,15 +12,30 @@ import {
   selectItemCount,
   selectValue,
 } from '../../calculatorSlice';
-import logo from '../../../../assets/Wolt-logo.jpg';
+import ConfirmItem from '../confirmItem/ConfirmItem';
+import Header from '../header/Header';
 
+/**
+ * Type definition for {@link calculateFee} function.
+ */
 export interface CalculateFeeProp {
+  /** Cart value in euros. */
   value: number;
+  /** Delivery distance in meters. */
   distance: number;
+  /** Number of items. */
   items: number;
+  /** Order time string. */
   dateTime: string;
 }
 
+/**
+ * Calculate the delivery fee based on given rules.
+ *
+ * @param prop {@link CalculateFeeProp}
+ *
+ * @returns fees in euros.
+ */
 export function calculateFee(prop: CalculateFeeProp): number {
   const { value, distance, items, dateTime } = prop;
 
@@ -55,7 +70,13 @@ export function calculateFee(prop: CalculateFeeProp): number {
   return 15;
 }
 
-export default function FeeCalculator() {
+/**
+ * Calculation page.
+ *
+ * Display the confirmed values and calculated fee. A return button at the
+ * bottom of the page redirects to the front page and clear redux when clicked.
+ */
+export default function FeeCalculator(): React.JSX.Element {
   const cartValue = useAppSelector(selectValue);
   const deliveryDistance = useAppSelector(selectDistance);
   const itemCount = useAppSelector(selectItemCount);
@@ -86,63 +107,14 @@ export default function FeeCalculator() {
           borderRadius: theme.spacing(4),
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <img src={logo} alt="A Wolt logo" height={100} />
-          <Typography variant="h4" fontWeight={700}>
-            Your delivery details
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: theme.spacing(2, 2),
-            alignItems: 'center',
-          }}
-        >
-          <Typography variant="h5">Cart Value</Typography>
-          <Typography variant="subtitle1">{`\u20AC ${cartValue}`}</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: theme.spacing(2, 2),
-            alignItems: 'center',
-          }}
-        >
-          <Typography variant="h5">Delivery Distance</Typography>
-          <Typography variant="subtitle1">{deliveryDistance} m</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: theme.spacing(2, 2),
-            alignItems: 'center',
-          }}
-        >
-          <Typography variant="h5">Number of Items</Typography>
-          <Typography variant="subtitle1">{itemCount}</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: theme.spacing(2, 2),
-            alignItems: 'center',
-          }}
-        >
-          <Typography variant="h5">Order Time</Typography>
-          <Typography variant="subtitle1">
-            {dateTime?.slice(0, -9).replace('T', ' ')}
-          </Typography>
-        </Box>
+        <Header title="Your delivery details" />
+        <ConfirmItem name="cartValue" value={cartValue} />
+        <ConfirmItem name="deliveryDistance" value={deliveryDistance} />
+        <ConfirmItem name="numberOfItems" value={itemCount} />
+        <ConfirmItem
+          name="orderTime"
+          value={dateTime.slice(0, -9).replace('T', ' ')}
+        />
         <Divider
           sx={{
             margin: theme.spacing(2, 0),

@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 export interface CalculatorSliceState {
   /** Total value in the cart. */
   cartValue: number;
-  /** Total distance in km. */
+  /** Total distance in meters. */
   deliveryDistance: number;
   /** Number of items in the cart. */
   numberOfItems: number;

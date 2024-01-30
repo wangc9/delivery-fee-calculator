@@ -5,9 +5,14 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.1.6
+### Chores
+- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Improve documentation
+
+
 ## v0.1.5
 ### Features
-- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Add docker file for production
+- [`2dd7c77`](https://github.com/wangc9/delivery-fee-calculator/commit/2dd7c7785e9967161bb70190d7e6b644a627c354) Add docker file for production
 
 
 ## v0.1.4
