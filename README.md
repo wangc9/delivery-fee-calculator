@@ -125,6 +125,8 @@ However, please note that if you want to run the e2e tests provided in the proje
     > 
     > -> Local: http://localhost:5173
     
+    Note that the message will take around 10 seconds to show after the "Attaching to delivery-fee-dev" message has shown. This is done on purpose to avoid race issues.
+
     After the aforementioned message has appeared, you can open the webpage at http://localhost:5173.
     
     Use the following command
@@ -186,12 +188,23 @@ To run the e2e tests, Node should be installed locally **regardless** of the met
     ```
     if hasn't been done before to install all packages needed
 
-2. Start the webpage according to the method chosen. **Make sure that the webpage is actually running before moving on to the next step**
+2. Start the webpage according to the method chosen.
+
+    Docker:
+    ```sh
+    docker compose -f docker-compose.dev.yml up
+    ``` 
+    
+    Own machine:
+    ```sh
+    npm start
+    ```
+    **Make sure that the webpage is actually running before moving on to the next step**
 
 3. If you prefer to use an UI for the e2e tests, in a new terminal at the root directory, run
 
     ```sh
-    npm cypress:open
+    npm run cypress:open
     ```
     This command will prompt a window similar to the following one:
     ![cypress-front-page](./src/assets/cypress-front-page.png)

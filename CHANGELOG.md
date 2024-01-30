@@ -5,9 +5,16 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.1.7
+### Bug Fixes
+- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Fix multiple bugs
+	- Add sleep in development docker to prevent race issues
+	- Delete unused html code
+
+
 ## v0.1.6
 ### Chores
-- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Improve documentation
+- [`d531eb7`](https://github.com/wangc9/delivery-fee-calculator/commit/d531eb7c93a069926d6e0ec16cebaf16d3467c5a) Improve documentation
 
 
 ## v0.1.5
