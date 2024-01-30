@@ -88,7 +88,7 @@ The calculator follows the following rules when calculating the fee:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This frontend is going to be deployed online. However, you could still clone the project and try it locally. There are two options to deploy the project locally. The recommended way of deployment is to use the Docker image provided in this project. However, it is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
+This frontend is deployed at https://delivery-fee-calculator-cx83.onrender.com. However, you could still try it locally. There are two options to deploy the project locally. The recommended way of deployment is to use the Docker image provided in this project. However, it is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
 
 ### Prerequisites
 

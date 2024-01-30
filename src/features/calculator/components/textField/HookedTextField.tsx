@@ -52,6 +52,9 @@ export default function HookedTextField(
         {displayName}
       </Typography>
       <TextField
+        sx={{
+          maxWidth: 200,
+        }}
         data-test-id={`${name}Helper`}
         inputProps={{
           'data-test-id': name,

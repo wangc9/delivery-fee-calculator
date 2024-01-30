@@ -57,7 +57,7 @@ export default function StyledDateTimePicker(): React.JSX.Element {
       <DesktopDateTimePicker
         sx={{
           width: 'fit-content',
-          maxWidth: 223,
+          maxWidth: 200,
         }}
         value={dateTime}
         onChange={(newValue) => {
