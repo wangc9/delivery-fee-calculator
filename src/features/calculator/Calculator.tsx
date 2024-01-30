@@ -1,5 +1,10 @@
-import { Box, Button, Typography, useTheme } from '@mui/material';
-import { Header, HookedTextField, StyledDateTimePicker } from './components';
+import { Box, Button, Typography } from '@mui/material';
+import {
+  Header,
+  HookedTextField,
+  StyledDateTimePicker,
+  ContentContainer,
+} from './components';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   changeShowConfirmation,
@@ -28,7 +33,7 @@ export default function Calculator(): React.JSX.Element {
 
   const dispatch = useAppDispatch();
 
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <main>
@@ -44,24 +49,7 @@ export default function Calculator(): React.JSX.Element {
         {showConfirmation ? (
           <Confirmation />
         ) : (
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: {
-                xs: 'calc(100vw - 32px)',
-                sm: 'calc(100vw - 32px)',
-                md: 868,
-                lg: 868,
-                xl: 868,
-              },
-              backgroundColor: '#ffffff',
-              boxShadow: 3,
-              padding: theme.spacing(4, 2),
-              alignSelf: 'center',
-              borderRadius: theme.spacing(4),
-            }}
-          >
+          <ContentContainer>
             <Header title="Delivery fee calculator" />
             <HookedTextField
               type="float"
@@ -99,7 +87,7 @@ export default function Calculator(): React.JSX.Element {
                 <Typography variant="h5">SUBMIT</Typography>
               </Button>
             </Box>
-          </Box>
+          </ContentContainer>
         )}
       </fieldset>
     </main>

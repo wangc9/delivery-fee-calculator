@@ -72,8 +72,12 @@ export default function HookedTextField(
           property.onBlur();
           if (property.value === '' || property.value === '0') {
             property.setError('Value can not be empty!');
+            property.errorRef.current = 'Value can not be empty!';
           }
-          if (property.error === null || property.error === '') {
+          if (
+            property.errorRef.current === null ||
+            property.errorRef.current === ''
+          ) {
             if (name === 'cartValue') {
               dispatch(changeValue(parseFloat(property.value)));
             } else if (name === 'deliveryDistance') {

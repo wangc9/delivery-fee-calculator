@@ -4,7 +4,7 @@
 
 /* eslint-disable @typescript-eslint/no-restricted-imports */
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import type { AppDispatch, RootState } from './store';
 
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
@@ -26,6 +26,8 @@ export const useField = (type: 'float' | 'number') => {
   const [value, setValue] = useState<string>('');
   /** State of error. */
   const [error, setError] = useState<null | string>(null);
+  /** Reference of error. */
+  const errorRef = useRef<null | string>(null);
 
   /**
    * Change value when the text field value has changed.
@@ -51,32 +53,40 @@ export const useField = (type: 'float' | 'number') => {
     if (type === 'float') {
       if (value.match(/^[0-9]*\.?([0-9]+)?$/)) {
         setError(null);
+        errorRef.current = null;
       } else if (value.match(/^-(.+)?/)) {
         setError('Value must be a positive float number');
+        errorRef.current = 'Value must be a positive float number';
       } else if (value.match(/^\+(.+)?/)) {
         const newValue = value.slice(1);
         if (newValue.match(/^[0-9]*\.?([0-9]+)?$/)) {
           setValue(newValue);
         } else {
           setError('Value must be a float number');
+          errorRef.current = 'Value must be a float number';
         }
       } else {
         setError('Value must be a float number');
+        errorRef.current = 'Value must be a float number';
       }
     } else if (type === 'number') {
       if (value.match(/^\d+$/)) {
         setError(null);
+        errorRef.current = null;
       } else if (value.match(/^-(.+)?/)) {
         setError('Value must be a positive integer');
+        errorRef.current = 'Value must be a positive integer';
       } else if (value.match(/^\+(.+)?/)) {
         const newValue = value.slice(1);
         if (newValue.match(/^\d+$/)) {
           setValue(newValue);
         } else {
           setError('Value must be an integer');
+          errorRef.current = 'Value must be an integer';
         }
       } else {
         setError('Value must be an integer');
+        errorRef.current = 'Value must be an integer';
       }
     }
   };
@@ -86,6 +96,8 @@ export const useField = (type: 'float' | 'number') => {
     value,
     /** Error message. Default as null. Contains error message if validation fails. */
     error,
+    /** Reference of error. Does not change state. */
+    errorRef,
     onChange,
     onBlur,
     /** Manually set error message. */

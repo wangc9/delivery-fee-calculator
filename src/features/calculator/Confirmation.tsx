@@ -8,7 +8,7 @@ import {
   selectValue,
 } from './calculatorSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { ConfirmItem, Header } from './components';
+import { ConfirmItem, ContentContainer, Header } from './components';
 
 /**
  * A confirmation page.
@@ -28,24 +28,7 @@ export default function Confirmation(): React.JSX.Element {
   const dateTime = useAppSelector(selectDateTime);
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: {
-          xs: 'calc(100vw - 32px)',
-          sm: 'calc(100vw - 32px)',
-          md: 868,
-          lg: 868,
-          xl: 868,
-        },
-        backgroundColor: '#ffffff',
-        boxShadow: 3,
-        padding: theme.spacing(4, 2),
-        alignSelf: 'center',
-        borderRadius: theme.spacing(4),
-      }}
-    >
+    <ContentContainer>
       <Header title="Your Order" />
       <Box
         sx={{
@@ -96,6 +79,6 @@ export default function Confirmation(): React.JSX.Element {
           <Typography variant="h6">CONFIRM</Typography>
         </Button>
       </Box>
-    </Box>
+    </ContentContainer>
   );
 }
