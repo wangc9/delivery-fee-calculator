@@ -5,9 +5,14 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.1.5
+### Features
+- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Add docker file for production
+
+
 ## v0.1.4
 ### Chores
-- [`bc3349f`](https://github.com/wangc9/delivery-fee-calculator/commit/bc3349f4194b47850a9fdc1a4ea4f0eca29f14ec)* Split calculator page and confirmation page into reusable components
+- [`618f0ab`](https://github.com/wangc9/delivery-fee-calculator/commit/618f0abf284b52fcf66ac91d992b5c3b8922f3e7) Split calculator page and confirmation page into reusable components
 	- Split `Calculator` into `Calculator` and `Confirmation`
 	- Use `Header` and `ConfirmItem` to display confirmation page
 	- Add unit tests for the new pages and components

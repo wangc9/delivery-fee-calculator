@@ -106,19 +106,29 @@ However, please note that if you want to run the e2e tests provided in the proje
 
 2. At the root directory, run the following command to start the web page
     ```sh
-    docker compose -f docker-compose.dev.yml up --build
+    docker compose -f docker-compose.yml up --build
     ```
     The command will build an image and a container to run the webpage. Please note that the build process may take some time. Once the build process is finished, you should see information like the following appears in the terminal:
+    > INFO Accepting connections at http://localhost:3000
+    
+    After the aforementioned message has appeared, you can open the webpage at http://localhost:5173.
+
+
+3. After you've finished using the webpage, please use `Ctrl` + `c` in the same terminal that docker is running to stop the container.
+
+
+4. To run the unit or integration tests accompanied with the project, use a different docker image and container than the previous mentioned one by running the following command
+    ```sh
+    docker compose -f docker-compose.dev.yml up --build
+    ```
+    The command will build a separate image and container to run the webpage. Please note that the build process may take some time. Once the build process is finished, you should see information like the following appears in the terminal:
     > VITE V5.0.12
     > 
     > -> Local: http://localhost:5173
     
     After the aforementioned message has appeared, you can open the webpage at http://localhost:5173.
-
-3. After you've finished using the webpage, please use `Ctrl` + `c` in the same terminal that docker is running to stop the container.
-
-
-4. To run the unit or integration tests accompanied with the project, run the following command
+    
+    Use the following command
     ```sh
     docker compose -f docker-compose.dev.yml run --rm app npm run test
     ```
@@ -132,11 +142,34 @@ However, please note that if you want to run the e2e tests provided in the proje
    npm install
    ```
 
-2. Run the project in a new terminal with
+2. **Method 1**
+  Run the project with
+   ```sh
+   npm run build
+   ```
+   After the build has finished, run the following command
+   ```sh
+   npm run preview
+   ```
+   You should see messages like this after some time
+   > vite preview
+   >
+   > -> Local: http://localhost:4173
+
+   After you've seen this message, you can view the web page at http://localhost:4173. This is a preview of the production version of the webpage.
+
+   After you've finished trying the webpage, use `Ctrl` + `c` in the terminal to stop the webpage.
+
+   **Method 2** Run the project with
    ```sh
    npm start
    ```
-   After you've finished trying the webpage, use `Ctrl` + `c` in the terminal to stop the webpage.
+   You should see something similar like this in your terminal:
+   >VITE v5.0.12
+   >
+   >->Local: http://localhost:5173
+
+   After seeing this message, you can open the webpage at http://localhost:5173. This method shows the development version of the webpage. After you've finished trying the webpage, use `Ctrl` + `c` in the terminal to stop the webpage.
 
 3. To run all the tests for this project, use
    ```sh
