@@ -14,7 +14,6 @@
   <p align="center">
     Calculate the delivery fee with simple clicks
     <br />
-    <a href="https://github.com/wangc9/journey-reviewer-frontend"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
