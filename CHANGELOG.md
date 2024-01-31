@@ -1,13 +1,12 @@
 # Changelog
 
 ## Note
-- "*" indicates that the commit link is a placeholder. The corresponding link will be updated in the next commit.
-- **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
+**Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
 ## v0.2.5
 ### Bug fixes
-- [`d874377`](https://github.com/wangc9/delivery-fee-calculator/commit/d8743770d2188d3cc839358d8bac830592257db6)* Change test id name for delivery fee.
+- [`e885288`](https://github.com/wangc9/delivery-fee-calculator/commit/e885288c438b558828781342bf5049ce3dc140c8) Change test id name for delivery fee.
 
 
 ## v0.2.4
