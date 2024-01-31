@@ -40,34 +40,48 @@ export interface CalculateFeeProp {
 export function calculateFee(prop: CalculateFeeProp): number {
   const { value, distance, items, dateTime } = prop;
 
+  // 0 delivery fee for order over 200 euros.
   if (value >= 200) {
     return 0;
   }
   let fee = 0;
+
+  // Surcharge between value and 10 euros.
   if (value < 10) {
     fee += 10 - value;
   }
+
+  // Basic delivery fee for all distances.
   fee += 2;
 
+  // Surcharge for distances longer than 1000 meters.
   if (distance > 1000) {
     const distanceCharge = Math.ceil((distance - 1000) / 500);
     fee += distanceCharge;
   }
+
+  // Surcharge for more than 4 items.
   if (items > 4) {
     const itemCharge = (items - 4) * 0.5;
     fee += itemCharge;
 
+    // Bulk charge for more than 12 items.
     if (items > 12) {
       fee += 1.2;
     }
   }
+
+  // Friday rush charge for orders between 3 pm and 7 pm.
   const date = dayjs(dateTime);
-  if (date.day() === 5 && date.hour() >= 15 && date.hour() <= 19) {
+  if (date.day() === 5 && date.hour() >= 15 && date.hour() < 19) {
     fee *= 1.2;
   }
+
   if (fee < 15) {
     return parseFloat(fee.toFixed(2));
   }
+
+  // Maximum charge.
   return 15;
 }
 
