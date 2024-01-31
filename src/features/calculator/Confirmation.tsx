@@ -1,7 +1,10 @@
 import { Box, Typography, Button, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import {
+  changeDistance,
+  changeItemCount,
   changeShowConfirmation,
+  changeValue,
   selectDateTime,
   selectDistance,
   selectItemCount,
@@ -57,6 +60,9 @@ export default function Confirmation(): React.JSX.Element {
           data-test-id="cancelButton"
           variant="contained"
           onClick={() => {
+            dispatch(changeDistance(0));
+            dispatch(changeItemCount(0));
+            dispatch(changeValue(0));
             dispatch(changeShowConfirmation(false));
           }}
           sx={{

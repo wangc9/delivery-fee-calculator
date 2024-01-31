@@ -5,6 +5,11 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.2.3
+### Bug fixes
+- [`6830932`](https://github.com/wangc9/delivery-fee-calculator/commit/6830932ff7a379b5d644faab8461a3608db5ffca)* Clear redux when cancel button is clicked
+
+
 ## v0.2.2
 ### Bug fixes
 - [`6830932`](https://github.com/wangc9/delivery-fee-calculator/commit/6830932ff7a379b5d644faab8461a3608db5ffca) Use dayjs in unit tests to mitigate time zone problem and change `ContentContainer` style
