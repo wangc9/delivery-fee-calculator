@@ -2,6 +2,12 @@
 import { Box, useTheme } from '@mui/material';
 import { PropsWithChildren } from 'react';
 
+/**
+ * A responsive general container.
+ *
+ * The container can take in React components and display them in flex column.
+ * Browser window wider than 900px will results in a set container width of 868px.
+ */
 export default function ContentContainer(
   props: PropsWithChildren,
 ): React.JSX.Element {

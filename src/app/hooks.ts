@@ -18,7 +18,9 @@ export const useAppSelector = useSelector.withTypes<RootState>();
  * @returns `onChange` -- `onChange` event handler \
  * `onBlur` -- `onBlur` event handler\
  * `value` -- Value of the property \
- * `error` -- Error message
+ * `error` -- Error message\
+ * `errorRef` -- Reference of error\
+ * `setError` -- set function to change error state
  */
 // eslint-disable-next-line import/prefer-default-export
 export const useField = (type: 'float' | 'number') => {

@@ -12,7 +12,7 @@ import { changeDateTime, selectDateTime } from '../../calculatorSlice';
  * A datetime picker.
  *
  * Time is displayed in finnish DD.MM.YY HH.mm format. Date and time can be
- * typed in to the text field or selected using the selector. Default time is
+ * typed into the text field or selected using the selector. Default time is
  * 30 minutes after the time when the component is initially loaded. Selecting
  * or typing a time earlier than the current time will result in warning. The
  * datetime selected or typed will be memorised in redux after the component loses
