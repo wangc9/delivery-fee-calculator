@@ -7,7 +7,7 @@
 
 ## v0.2.2
 ### Bug fixes
-- [`86a87e8`](https://github.com/wangc9/delivery-fee-calculator/commit/86a87e812416a0a2729bbbf58dbc7fbfc07e5699)* Use dayjs in unit tests to mitigate time zone problem and change `ContentContainer` style
+- [`6830932`](https://github.com/wangc9/delivery-fee-calculator/commit/6830932ff7a379b5d644faab8461a3608db5ffca) Use dayjs in unit tests to mitigate time zone problem and change `ContentContainer` style
 
 
 ## v0.2.1
