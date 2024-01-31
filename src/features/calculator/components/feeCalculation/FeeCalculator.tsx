@@ -129,7 +129,7 @@ export default function FeeCalculator(): React.JSX.Element {
           }}
         >
           <Typography variant="h5">Delivery Fee</Typography>
-          <Typography variant="h5" fontWeight={700} data-test-id="deliveryFee">
+          <Typography variant="h5" fontWeight={700} data-test-id="fee">
             {'\u20AC '}
             {calculateFee({
               value: cartValue,

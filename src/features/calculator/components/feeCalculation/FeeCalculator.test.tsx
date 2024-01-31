@@ -334,7 +334,7 @@ describe('Can render basic page', () => {
     expect(ContentContainer).toBeCalled();
     expect(Header).toBeCalled();
     expect(ConfirmItem).toBeCalledTimes(4);
-    const deliveryFee = screen.getByTestId('deliveryFee');
+    const deliveryFee = screen.getByTestId('fee');
     expect(deliveryFee).toBeDefined();
     const returnButton = screen.getByTestId('returnButton');
     expect(returnButton).toBeDefined();

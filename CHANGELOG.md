@@ -5,9 +5,14 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.2.5
+### Bug fixes
+- [`d874377`](https://github.com/wangc9/delivery-fee-calculator/commit/d8743770d2188d3cc839358d8bac830592257db6)* Change test id name for delivery fee.
+
+
 ## v0.2.4
 ### Bug fixes
-- [`d874377`](https://github.com/wangc9/delivery-fee-calculator/commit/d8743770d2188d3cc839358d8bac830592257db6)* Change logic to exclude 7 pm as the rush hour
+- [`78d5489`](https://github.com/wangc9/delivery-fee-calculator/commit/78d54891ca80337c979a79ab5f8b77e5cc6553ee) Change logic to exclude 7 pm as the rush hour
 
 
 ## v0.2.3
