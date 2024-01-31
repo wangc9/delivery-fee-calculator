@@ -198,7 +198,8 @@ In order to run this project locally, Node.js is needed. Please have a look at t
     ```
     This command will prompt a window similar to the following one:
     ![cypress-front-page](./src/assets/cypress-front-page.png)
-    Choose E2E testing and choose Chrome as the browser, the next page should look similar to the following:
+    
+    Choose E2E testing and choose one of the browsers listed on the next page. After the selection, the next page should look similar to the following:
     ![cypress-spec](./src/assets/cypress-spec.png)
     Choose the test file to start running the e2e tests.
   
