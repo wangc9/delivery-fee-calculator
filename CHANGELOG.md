@@ -7,7 +7,7 @@
 
 ## v0.2.3
 ### Bug fixes
-- [`6830932`](https://github.com/wangc9/delivery-fee-calculator/commit/6830932ff7a379b5d644faab8461a3608db5ffca)* Clear redux when cancel button is clicked
+- [`d874377`](https://github.com/wangc9/delivery-fee-calculator/commit/d8743770d2188d3cc839358d8bac830592257db6) Clear redux when cancel button is clicked
 
 
 ## v0.2.2
