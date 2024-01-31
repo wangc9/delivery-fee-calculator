@@ -1,7 +1,20 @@
 import { describe, test, expect, jest } from '@jest/globals';
-import { calculateFee } from './FeeCalculator';
+import { screen, render, configure } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import FeeCalculator, { calculateFee } from './FeeCalculator';
+import ConfirmItem from '../confirmItem/ConfirmItem';
+import Header from '../header/Header';
+import ContentContainer from '../contentContainer/ContentContainer';
+import { store } from '../../../../app/store';
 
 jest.mock('../../../../assets/Wolt-logo.jpg', () => jest.fn());
+
+jest.mock('../confirmItem/ConfirmItem', () => jest.fn());
+jest.mock('../header/Header', () => jest.fn());
+jest.mock('../contentContainer/ContentContainer', () =>
+  jest.fn((props: React.PropsWithChildren) => <div>{props.children}</div>),
+);
 
 describe('Test fee calculation service', () => {
   test('More than 200 euro worth of items should have 0 delivery fee', () => {
@@ -299,5 +312,26 @@ describe('Test fee calculation service', () => {
         dateTime: '2024-03-01T17:53:35+02:00',
       }),
     ).toBe(11.64);
+  });
+});
+
+describe('Can render basic page', () => {
+  configure({ testIdAttribute: 'data-test-id' });
+
+  test('Can render all items', async () => {
+    render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <FeeCalculator />
+        </Provider>
+      </BrowserRouter>,
+    );
+    expect(ContentContainer).toBeCalled();
+    expect(Header).toBeCalled();
+    expect(ConfirmItem).toBeCalledTimes(4);
+    const deliveryFee = screen.getByTestId('deliveryFee');
+    expect(deliveryFee).toBeDefined();
+    const returnButton = screen.getByTestId('returnButton');
+    expect(returnButton).toBeDefined();
   });
 });

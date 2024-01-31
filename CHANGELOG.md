@@ -5,9 +5,14 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.2.1
+### Features
+- [`86a87e8`](https://github.com/wangc9/delivery-fee-calculator/commit/86a87e812416a0a2729bbbf58dbc7fbfc07e5699)* Add unit tests and personal reflection
+
+
 ## v0.2.0
 ### Features
-- [`86a87e8`](https://github.com/wangc9/delivery-fee-calculator/commit/86a87e812416a0a2729bbbf58dbc7fbfc07e5699)* Change style and deploy to render
+- [`92fbd5c`](https://github.com/wangc9/delivery-fee-calculator/commit/92fbd5cc6ee0d6c942b4a36a2b86c8b9da105a24) Change style and deploy to render
 
 
 ## v0.1.8

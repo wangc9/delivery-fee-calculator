@@ -63,6 +63,12 @@ The calculator follows the following rules when calculating the fee:
   - The maximum possible delivery fee is 15€.
   - All orders with a cart value of more than 200€ enjoy free delivery.
 
+When first loaded, the user is prompted to the front page to type in information. Note that the submit button is disabled at first. It will automatically be enabled once all input fields have received proper inputs. ![Wrong input](./src/assets/Wrong-input.png)![Normal input](./src/assets/Normal-input.png)
+
+After clicking the submit button, the user is prompted to confirm the input or cancel and re-enter the information.![confirm input](./src/assets/confirm.png)
+
+If user choose to confirm the order, a new page will show up with the confirmed information and the final delivery fee. User can then choose to return to the front page by pressing the return button.![result page](./src/assets/result.png)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -88,7 +94,7 @@ The calculator follows the following rules when calculating the fee:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This frontend is deployed at https://delivery-fee-calculator-cx83.onrender.com. However, you could still try it locally. There are two options to deploy the project locally. The recommended way of deployment is to use the Docker image provided in this project. However, it is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
+This frontend is deployed on [Render](https://delivery-fee-calculator-cx83.onrender.com). **Note: The website is deployed using a free CPU thus it will take some time for the page to load!** However, you could still try it locally. There are two options to deploy the project locally. The recommended way of deployment is to use the Docker image provided in this project. However, it is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
 
 ### Prerequisites
 
@@ -224,6 +230,8 @@ To run the e2e tests, Node should be installed locally **regardless** of the met
 ## Roadmap
 
 See the [change log](./CHANGELOG.md) for a full list changes.
+
+See the [reflection](./REFLECTION.md) for a reflection on the project, including technology choices, experience, and possible improvements.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
