@@ -5,9 +5,14 @@
 - **Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
 
 
+## v0.2.2
+### Bug fixes
+- [`86a87e8`](https://github.com/wangc9/delivery-fee-calculator/commit/86a87e812416a0a2729bbbf58dbc7fbfc07e5699)* Use dayjs in unit tests to mitigate time zone problem and change `ContentContainer` style
+
+
 ## v0.2.1
 ### Features
-- [`86a87e8`](https://github.com/wangc9/delivery-fee-calculator/commit/86a87e812416a0a2729bbbf58dbc7fbfc07e5699)* Add unit tests and personal reflection
+- [`11d588c`](https://github.com/wangc9/delivery-fee-calculator/commit/11d588cafcb649ac69aa6d55212f403b9a9031a7) Add unit tests and personal reflection
 
 
 ## v0.2.0

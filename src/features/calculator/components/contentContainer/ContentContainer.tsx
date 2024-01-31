@@ -24,7 +24,6 @@ export default function ContentContainer(
         padding: theme.spacing(4, 2),
         alignSelf: 'center',
         borderRadius: theme.spacing(4),
-        maxHeight: '100vh',
       }}
     >
       {props.children}

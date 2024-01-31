@@ -9,7 +9,7 @@ export interface CalculatorSliceState {
   deliveryDistance: number;
   /** Number of items in the cart. */
   numberOfItems: number;
-  /** Selected time of order. */
+  /** Selected time of order in format "YYYY-MM-DDTHH:mm:SSZ" */
   orderTime: string;
   /** Control whether to show confirmation dialogue. */
   showConfirmation: boolean;

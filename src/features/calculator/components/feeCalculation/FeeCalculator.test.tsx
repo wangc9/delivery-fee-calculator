@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { describe, test, expect, jest } from '@jest/globals';
 import { screen, render, configure } from '@testing-library/react';
 import { Provider } from 'react-redux';
@@ -17,13 +18,17 @@ jest.mock('../contentContainer/ContentContainer', () =>
 );
 
 describe('Test fee calculation service', () => {
+  const busyHour = dayjs().day(5).hour(16);
+  const busy = busyHour.format();
+  const normalHour = dayjs().day(5).hour(13);
+  const normal = normalHour.format();
   test('More than 200 euro worth of items should have 0 delivery fee', () => {
     expect(
       calculateFee({
         value: 200,
         distance: 999,
         items: 1,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(0);
     expect(
@@ -31,7 +36,7 @@ describe('Test fee calculation service', () => {
         value: 201,
         distance: 999,
         items: 1,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(0);
     expect(
@@ -39,7 +44,7 @@ describe('Test fee calculation service', () => {
         value: 202,
         distance: 999,
         items: 5,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(0);
     expect(
@@ -47,7 +52,7 @@ describe('Test fee calculation service', () => {
         value: 203,
         distance: 999,
         items: 5,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(0);
     expect(
@@ -55,7 +60,7 @@ describe('Test fee calculation service', () => {
         value: 204,
         distance: 999,
         items: 13,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(0);
     expect(
@@ -63,7 +68,7 @@ describe('Test fee calculation service', () => {
         value: 205,
         distance: 999,
         items: 13,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(0);
     expect(
@@ -71,7 +76,7 @@ describe('Test fee calculation service', () => {
         value: 206,
         distance: 1999,
         items: 1,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(0);
     expect(
@@ -79,7 +84,7 @@ describe('Test fee calculation service', () => {
         value: 207,
         distance: 1999,
         items: 1,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(0);
     expect(
@@ -87,7 +92,7 @@ describe('Test fee calculation service', () => {
         value: 208,
         distance: 1999,
         items: 5,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(0);
     expect(
@@ -95,7 +100,7 @@ describe('Test fee calculation service', () => {
         value: 209,
         distance: 1999,
         items: 5,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(0);
     expect(
@@ -103,7 +108,7 @@ describe('Test fee calculation service', () => {
         value: 210,
         distance: 1999,
         items: 13,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(0);
     expect(
@@ -111,7 +116,7 @@ describe('Test fee calculation service', () => {
         value: 211,
         distance: 1999,
         items: 13,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(0);
   });
@@ -122,7 +127,7 @@ describe('Test fee calculation service', () => {
         value: 0.34,
         distance: 999,
         items: 1,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(11.66);
     expect(
@@ -130,7 +135,7 @@ describe('Test fee calculation service', () => {
         value: 1.23,
         distance: 999,
         items: 1,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(12.92);
     expect(
@@ -138,7 +143,7 @@ describe('Test fee calculation service', () => {
         value: 2.34,
         distance: 999,
         items: 5,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(10.16);
     expect(
@@ -146,7 +151,7 @@ describe('Test fee calculation service', () => {
         value: 3.45,
         distance: 999,
         items: 5,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(10.86);
     expect(
@@ -154,7 +159,7 @@ describe('Test fee calculation service', () => {
         value: 4.56,
         distance: 999,
         items: 13,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(13.14);
     expect(
@@ -162,7 +167,7 @@ describe('Test fee calculation service', () => {
         value: 5.67,
         distance: 999,
         items: 13,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(14.44);
     expect(
@@ -170,7 +175,7 @@ describe('Test fee calculation service', () => {
         value: 6.78,
         distance: 1999,
         items: 1,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(7.22);
     expect(
@@ -178,7 +183,7 @@ describe('Test fee calculation service', () => {
         value: 7.89,
         distance: 1999,
         items: 1,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(7.33);
     expect(
@@ -186,7 +191,7 @@ describe('Test fee calculation service', () => {
         value: 8.9,
         distance: 1999,
         items: 5,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(5.6);
     expect(
@@ -194,7 +199,7 @@ describe('Test fee calculation service', () => {
         value: 9.01,
         distance: 1999,
         items: 5,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(6.59);
     expect(
@@ -202,7 +207,7 @@ describe('Test fee calculation service', () => {
         value: 0.12,
         distance: 1999,
         items: 13,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(15);
     expect(
@@ -210,7 +215,7 @@ describe('Test fee calculation service', () => {
         value: 1.54,
         distance: 1999,
         items: 13,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(15);
   });
@@ -221,7 +226,7 @@ describe('Test fee calculation service', () => {
         value: 10.34,
         distance: 999,
         items: 1,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(2);
     expect(
@@ -229,7 +234,7 @@ describe('Test fee calculation service', () => {
         value: 11.23,
         distance: 999,
         items: 1,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(2.4);
     expect(
@@ -237,7 +242,7 @@ describe('Test fee calculation service', () => {
         value: 12.34,
         distance: 999,
         items: 5,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(2.5);
     expect(
@@ -245,7 +250,7 @@ describe('Test fee calculation service', () => {
         value: 13.45,
         distance: 999,
         items: 5,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(3);
     expect(
@@ -253,7 +258,7 @@ describe('Test fee calculation service', () => {
         value: 14.56,
         distance: 999,
         items: 13,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(7.7);
     expect(
@@ -261,7 +266,7 @@ describe('Test fee calculation service', () => {
         value: 15.67,
         distance: 999,
         items: 13,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(9.24);
     expect(
@@ -269,7 +274,7 @@ describe('Test fee calculation service', () => {
         value: 199.78,
         distance: 1999,
         items: 1,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(4);
     expect(
@@ -277,7 +282,7 @@ describe('Test fee calculation service', () => {
         value: 198.89,
         distance: 1999,
         items: 1,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(4.8);
     expect(
@@ -285,7 +290,7 @@ describe('Test fee calculation service', () => {
         value: 197.9,
         distance: 1999,
         items: 5,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(4.5);
     expect(
@@ -293,7 +298,7 @@ describe('Test fee calculation service', () => {
         value: 196.01,
         distance: 1999,
         items: 5,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(5.4);
     expect(
@@ -301,7 +306,7 @@ describe('Test fee calculation service', () => {
         value: 195.12,
         distance: 1999,
         items: 13,
-        dateTime: '2024-03-01T22:53:35+02:00',
+        dateTime: normal,
       }),
     ).toBe(9.7);
     expect(
@@ -309,7 +314,7 @@ describe('Test fee calculation service', () => {
         value: 194.54,
         distance: 1999,
         items: 13,
-        dateTime: '2024-03-01T17:53:35+02:00',
+        dateTime: busy,
       }),
     ).toBe(11.64);
   });
