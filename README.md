@@ -94,13 +94,11 @@ If user choose to confirm the order, a new page will show up with the confirmed 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This frontend is deployed on [Render](https://delivery-fee-calculator-cx83.onrender.com). **Note: The website is deployed using a free CPU thus it will take some time for the page to load!** However, you could still try it locally. There are two options to deploy the project locally. The recommended way of deployment is to use the Docker image provided in this project. However, it is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
+This frontend is deployed on [Render](https://delivery-fee-calculator-cx83.onrender.com). **Note: The website is deployed using a free CPU thus it will take some time for the page to load!** However, you could still try it locally. There are two options to deploy the project locally. You can use the Docker image provided in this project. It is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
 
 ### Prerequisites
 
-In order to run this project locally, Node.js is needed. Please have a look at the [official website](https://nodejs.org/en/download) and install the latest LTS version Node 20. The Docker file provided has Node configured. Therefore, if you choose to use Docker, you don't need to install Node locally to start the webpage. Instead, it is required that you have docker installed on your machine. To install Docker, please have a look at the official installation guide at [Get Docker](https://docs.docker.com/get-docker/).
-
-However, please note that if you want to run the e2e tests provided in the project, you still need to install Node locally even if you want to use Docker.
+In order to run this project locally, Node.js is needed. Please have a look at the [official website](https://nodejs.org/en/download) and install the latest LTS version Node 20. The Docker file provided has Node configured. Therefore, if you choose to use Docker, it is required that you have docker additionally installed on your machine. To install Docker, please have a look at the official installation guide at [Get Docker](https://docs.docker.com/get-docker/).
 
 
 ### Installation
@@ -120,26 +118,6 @@ However, please note that if you want to run the e2e tests provided in the proje
 
 
 3. After you've finished using the webpage, please use `Ctrl` + `c` in the same terminal that docker is running to stop the container.
-
-
-4. To run the unit or integration tests accompanied with the project, use a different docker image and container than the previous mentioned one by running the following command
-    ```sh
-    docker compose -f docker-compose.dev.yml up --build
-    ```
-    The command will build a separate image and container to run the webpage. Please note that the build process may take some time. Once the build process is finished, you should see information like the following appears in the terminal:
-    > VITE V5.0.12
-    > 
-    > -> Local: http://localhost:5173
-    
-    Note that the message will take around 10 seconds to show after the "Attaching to delivery-fee-dev" message has shown. This is done on purpose to avoid race issues.
-
-    After the aforementioned message has appeared, you can open the webpage at http://localhost:5173.
-    
-    Use the following command
-    ```sh
-    docker compose -f docker-compose.dev.yml run --rm app npm run test
-    ```
-    This command will run all the tests and display outcomes in the terminal. After all tests have been run, the container created for the tests will be removed.
 
 
 #### Using own machine
@@ -178,14 +156,20 @@ However, please note that if you want to run the e2e tests provided in the proje
 
    After seeing this message, you can open the webpage at http://localhost:5173. This method shows the development version of the webpage. After you've finished trying the webpage, use `Ctrl` + `c` in the terminal to stop the webpage.
 
-3. To run all the tests for this project, use
+#### Running unit and integration tests
+
+1. If you've previously used Docker, first use the following command at the root directory to install all packages
+
+    ```sh
+    npm install
+    ```
+
+2. To run all the tests for this project, use
    ```sh
    npm run test
    ```
 
 #### Running e2e tests
-
-To run the e2e tests, Node should be installed locally **regardless** of the methods chosen to run the webpage.
 
 1. At the root directory, run
 
@@ -198,7 +182,7 @@ To run the e2e tests, Node should be installed locally **regardless** of the met
 
     Docker:
     ```sh
-    docker compose -f docker-compose.dev.yml up
+    docker compose -f docker-compose.yml up
     ``` 
     
     Own machine:
