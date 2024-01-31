@@ -41,7 +41,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -52,12 +52,12 @@
 
 ![Delivery fee calculator](./src/assets/front-page.png)
 
-This is a simplified delivery fee calculator. User can type in the value of products, the distance of the delivery, the total number of products, and finally the favourable order time, to calculate the fee for delivering all the products. Users also have the chance to change the data if needed before calculating the final fees.
+This is a simplified delivery fee calculator. Users can type in the value of products, the distance of the delivery, the total number of products, and finally the favourable order time, to calculate the fee for delivering all the products. Users also have the chance to change the data if needed before calculating the final fees.
 
 The calculator follows the following rules when calculating the fee:
 
-  - If the cart value is less than 10€, the difference between cart value and 10€ is added as surcharge.
-  - All orders within 1000 meters are charged a basic delivery fee of 2€. An additional 1€ is charged for every additional 500 meters. Additional distance less than 500 meters is rounded **up** and counted as full 500 meters.
+  - If the cart value is less than 10€, the difference between the cart value and 10€ is added as a surcharge.
+  - All orders within 1000 meters are charged a basic delivery fee of 2€. An additional 1€ is charged for every additional 500 meters. Additional distances less than 500 meters are rounded **up** and counted as full 500 meters.
   - If there are five or more items, each item above and including the fifth one is charged 50 cents. If the total number of items is more than 12, a separate 1,2€ is charged in addition to the surcharge for each item.
   - For orders whose order time is between 3 p.m. and 7 p.m. on Friday, the total fee is multiplied by 1.2.
   - The maximum possible delivery fee is 15€.
@@ -67,7 +67,7 @@ When first loaded, the user is prompted to the front page to type in information
 
 After clicking the submit button, the user is prompted to confirm the input or cancel and re-enter the information.![confirm input](./src/assets/confirm.png)
 
-If user choose to confirm the order, a new page will show up with the confirmed information and the final delivery fee. User can then choose to return to the front page by pressing the return button.![result page](./src/assets/result.png)
+If the user chooses to confirm the order, a new page will show up with the confirmed information and the final delivery fee. The user can then choose to return to the front page by pressing the return button.![result page](./src/assets/result.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,18 +94,18 @@ If user choose to confirm the order, a new page will show up with the confirmed 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This frontend is deployed on [Render](https://delivery-fee-calculator-cx83.onrender.com). **Note: The website is deployed using a free CPU thus it will take some time for the page to load!** However, you could still try it locally. There are two options to deploy the project locally. You can use the Docker image provided in this project. It is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
+This project is deployed on [Render](https://delivery-fee-calculator-cx83.onrender.com). **Note: The website is deployed using a free CPU thus it will take some time for the page to load!** However, you could still try it locally. There are two options to deploy the project locally. You can use the Docker image provided in this project. It is also possible to try out the project without Docker. This project follows the Test-driven Development ([TDD](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)) practice. There are different types of tests in the project. Detailed instructions on how to run them are provided later.
 
 ### Prerequisites
 
-In order to run this project locally, Node.js is needed. Please have a look at the [official website](https://nodejs.org/en/download) and install the latest LTS version Node 20. The Docker file provided has Node configured. Therefore, if you choose to use Docker, it is required that you have docker additionally installed on your machine. To install Docker, please have a look at the official installation guide at [Get Docker](https://docs.docker.com/get-docker/).
+In order to run this project locally, Node.js is needed. Please have a look at the [official website](https://nodejs.org/en/download) and install the latest LTS version Node 20. The Docker file provided has Node configured. Therefore, if you choose to use Docker, it is required that you have Docker additionally installed on your machine. To install Docker, please have a look at the official installation guide at [Get Docker](https://docs.docker.com/get-docker/).
 
 
 ### Installation
 
 #### Using Docker
 
-1. Make sure that you have successfully installed Docker on your machine and it can work properly. If this is not possible, please skip to <a href="#using-own-machine">Using own machine</a>.
+1. Make sure that you have successfully installed Docker on your machine and that it can work properly. If this is not possible, please skip to <a href="#using-own-machine">Using own machine</a>.
 
 2. At the root directory, run the following command to start the web page
     ```sh
@@ -149,7 +149,7 @@ In order to run this project locally, Node.js is needed. Please have a look at t
    ```sh
    npm start
    ```
-   You should see something similar like this in your terminal:
+   You should see something similar to this in your terminal:
    >VITE v5.0.12
    >
    >->Local: http://localhost:5173
@@ -176,7 +176,7 @@ In order to run this project locally, Node.js is needed. Please have a look at t
     ```sh
     npm install
     ```
-    if hasn't been done before to install all packages needed
+    if hasn't been done before to install all the packages needed
 
 2. Start the webpage according to the method chosen.
 
@@ -191,7 +191,7 @@ In order to run this project locally, Node.js is needed. Please have a look at t
     ```
     **Make sure that the webpage is actually running before moving on to the next step**
 
-3. If you prefer to use an UI for the e2e tests, in a new terminal at the root directory, run
+3. If you prefer to use a UI for the e2e tests, in a new terminal at the root directory, run
 
     ```sh
     npm run cypress:open
@@ -214,7 +214,7 @@ In order to run this project locally, Node.js is needed. Please have a look at t
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [change log](./CHANGELOG.md) for a full list changes.
+See the [change log](./CHANGELOG.md) for a full list of changes.
 
 See the [reflection](./REFLECTION.md) for a reflection on the project, including technology choices, experience, and possible improvements.
 
@@ -240,10 +240,10 @@ Chen Wang - [wang.756090@gmail.com](wang.756090@gmail.com)
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
 
-* This project uses material provided in Wolt's [media kit](https://press.wolt.com/en-WW/media_kits/225299/).
+* This project uses the material provided in Wolt's [media kit](https://press.wolt.com/en-WW/media_kits/225299/).
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
