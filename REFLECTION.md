@@ -18,7 +18,7 @@ For the CSS library, I used Material UI because the project doesn't really requi
 
 ### ESlint and Prettier
 
-This is really easy to justify. They are the most popular tools for code quality checks. I choose to follow the Airbnb guide which in my opinion is quite comprehensive, although I've also found some arguments against using it as it might be an overkill for small projects. I'm very eager to learn about how Wolt ensures code format.
+This is really easy to justify. They are the most popular tools for code quality checks. I choose to follow the Airbnb guide which in my opinion is quite comprehensive, although I've also found some arguments against using it as it might be an overkill for small projects. 
 
 ### Jest, React testing library, and Cypress
 
@@ -46,7 +46,7 @@ I'm familiar with using GitHub Actions and it has become kind of a muscle memory
 
 ## What could be improved
 
-* **Better tests**. When designing the tests, I followed my own "rule" that each component should have its own tests and e2e tests should act as a comprehensive guard for the whole app. This results in a somewhat even distribution between the three levels of tests, which works but is time-consuming. In addition, I've only included a handful of test cases. Having more of them and maybe including some more edge cases will definitely help me "sleep better at night". Moving on, I would like to put more emphasis on lower-level tests, and I would really love to know about how Wolt designs tests to have more unit tests, fewer integration tests and even fewer e2e tests.
+* **Better tests**. When designing the tests, I followed my own "rule" that each component should have its own tests and e2e tests should act as a comprehensive guard for the whole app. This results in a somewhat even distribution between the three levels of tests, which works but is time-consuming. In addition, I've only included a handful of test cases. Having more of them and maybe including some more edge cases will definitely help me "sleep better at night". Moving on, I would like to put more emphasis on lower-level tests to possibly reduce the time needed for running all the tests in CI pipeline.
 
 * **Use customised CSS library**. While using Material UI was quite easy, it has its own trade-off: less customisation and harder to test. The latter is especially true, as I had a hard time trying to analyse what each Material UI component actually contains and how can I put the `data-test-id` into the right component. Using pure CSS or TailwindCSS could be an alternative.
 
@@ -56,4 +56,4 @@ I'm familiar with using GitHub Actions and it has become kind of a muscle memory
 
 ## Summary
 
-This has been a really fun project for me, and I have had the opportunity to close some gaps in my knowledge. Hopefully, this reflection has provided good insight and I am really eager to have a deeper discussion on the project. Thank you for reading.
+This has been a really fun project for me, and I have had the opportunity to close some gaps in my knowledge. Hopefully, this reflection has provided good insight. If you're interested in this project or anything else, I am always open for discussion. Thank you for reading.
