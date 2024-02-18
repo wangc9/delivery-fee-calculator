@@ -1,8 +1,5 @@
 # Changelog
 
-## Note
-**Currently, all links to the commits do not work as the project is hold on GitHub as a PRIVATE repo. I am happy to provide access for review upon request.**
-
 
 ## v0.2.5
 ### Bug fixes
